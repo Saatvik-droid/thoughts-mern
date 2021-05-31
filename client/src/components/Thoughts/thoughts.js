@@ -18,7 +18,6 @@ const Thoughts = () => {
             ))}
         </Grid>
         ) : <CircularProgress />
-        
     )
 }
 
