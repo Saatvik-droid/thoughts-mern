@@ -15,8 +15,7 @@ export const getThoughts = async (req, res) => {
     }
 }
 
-export const postThought = async (req, res) => {
-    // const thought = req.body
+export const createThought = async (req, res) => {
     const newThought = new ThoughtModel(req.body)
 
     try{
@@ -26,6 +25,18 @@ export const postThought = async (req, res) => {
     } catch (error) {
         res.status(409).json({ message: error.message })
     }
+}
+
+export const updateThought = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`)
+
+    const updatedThought = { ...req.body, _id: id }
+
+    await ThoughtModel.findByIdAndUpdate(id, updateThought, { new: true })
+
+    res.json(updateThought)
 }
 
 export default router
