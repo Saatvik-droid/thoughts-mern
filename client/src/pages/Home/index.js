@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { Grow, Grid, Paper} from '@material-ui/core'
+import { Grow, Grid } from '@material-ui/core'
 
 import AppBar from '../../components/AppBar/appBar'
 import Thoughts from '../../components/Thoughts/thoughts'
-import { getThoughts } from '../../actions/thoughts'
+import { getThoughts } from '../../redux/actions/thoughts'
 import useStyles from './styles'
 
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getThoughts())
-  })
+  }, [])
 
   return (
     <>

@@ -19,7 +19,7 @@ const Thought = ({ thought }) => {
                 </Typography>
             </CardContent>
             <CardActions className={classes.actionsContainer}>
-                <Button size="small">EDIT</Button>
+                <Button size="small" href={`thoughts/edit/${thought._id}`}>EDIT</Button>
                 <Button size="small">DELETE</Button>
             </CardActions>
         </Card>

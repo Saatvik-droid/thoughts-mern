@@ -1,22 +1,24 @@
+import { useParams } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
 
-import useStyles from './styles'
-import Form from '../../components/Form/form'
 import AppBar from '../../components/AppBar/appBar'
+import Form from '../../components/Form/form'
+import useStyles from './styles'
 
-const CreateThoughtPage = () => {
+const UpdateThoughtPage = () => {
+    const { id } = useParams()
     const classes = useStyles()
-
+    
     return (
         <>
             <AppBar />
             <Grid className={classes.container} container >
                 <Grid item xs={11} sm={8} md={6}>
-                    <Form />
+                    <Form type="Editing" id={id} />
                 </Grid>
             </Grid>
         </>
     )
 }
 
-export default CreateThoughtPage
+export default UpdateThoughtPage
