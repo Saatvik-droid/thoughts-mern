@@ -29,3 +29,13 @@ export const updateThought = (id, updatedThought) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const deleteThought = (id) => async (dispatch) => {
+    try {
+        await api.deleteThought(id)
+
+        dispatch({ type: 'DELETE', payload: id })
+    } catch (error) {
+        console.log(error)
+    }
+}

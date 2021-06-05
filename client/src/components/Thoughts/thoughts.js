@@ -10,13 +10,11 @@ const Thoughts = () => {
 
     return (
         thoughts.length > 0 ? (
-        <Grid container className={classes.container} spacing={2}>
-            {thoughts.map((thought) => (
-                <Grid item key={thought._id}>
+            <Grid className={classes.container} container spacing={2}>
+                {thoughts.map((thought) => (
                     <Thought thought={thought}/>
-                </Grid>
-            ))}
-        </Grid>
+                ))}
+            </Grid> 
         ) : <CircularProgress />
     )
 }

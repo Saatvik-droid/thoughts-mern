@@ -39,4 +39,14 @@ export const updateThought = async (req, res) => {
     res.json(updatedThought)
 }
 
+export const deleteThought = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`)
+    
+    await ThoughtModel.findByIdAndDelete(id)
+
+    res.json({ message: 'Deleted Successfully' })
+}
+
 export default router
