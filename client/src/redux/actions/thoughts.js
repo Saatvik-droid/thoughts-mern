@@ -22,7 +22,7 @@ export const createThought = (newThought) => async (dispatch) => {
 
 export const updateThought = (id, updatedThought) => async (dispatch) => {
     try {
-        const { data } = await api.updateThought(id,updatedThought)
+        const { data } = await api.updateThought(id, updatedThought)
 
         dispatch({ type: 'UPDATE', payload: data})
     } catch (error) {

@@ -1,9 +1,5 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
-
-import { getThoughts } from '../../redux/actions/thoughts'
 
 import AppBar from '../../components/AppBar/appBar'
 import Form from '../../components/Form/form'
@@ -11,12 +7,7 @@ import useStyles from './styles'
 
 const UpdateThoughtPage = () => {
     const { id } = useParams()
-    const dispatch = useDispatch()
     const classes = useStyles()
-
-    // useEffect(() => {
-    //     dispatch(getThoughts())
-    // }, [])
     
     return (
         <>

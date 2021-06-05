@@ -34,9 +34,9 @@ export const updateThought = async (req, res) => {
 
     const updatedThought = { ...req.body, _id: id }
 
-    await ThoughtModel.findByIdAndUpdate(id, updateThought, { new: true })
+    await ThoughtModel.findByIdAndUpdate(id, updatedThought, { new: true })
 
-    res.json(updateThought)
+    res.json(updatedThought)
 }
 
 export default router

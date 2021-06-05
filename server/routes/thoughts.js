@@ -5,6 +5,6 @@ const router = Router()
 
 router.get('/', getThoughts)
 router.post('/', createThought)
-router.patch('/edit/:id', updateThought)
+router.patch('/:id', updateThought)
 
 export default router
