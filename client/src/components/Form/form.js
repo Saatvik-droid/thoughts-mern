@@ -29,9 +29,7 @@ const Form = ({ type, id }) => {
                 clear()
             }
             setSubmitted(true)
-        } else {
-            setTitleError(true)
-        }
+        } else setTitleError(true)
     }
 
     const handleChange = (e, data) => {
@@ -54,7 +52,7 @@ const Form = ({ type, id }) => {
             <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
                 <TextField className={classes.formItem} error={titleError} variant="outlined" label="Title" placeholder="Beautiful day" fullWidth value={thoughtData.title} onChange={(e) => handleChange(e, 'title') } />
                 <TextField className={classes.formItem} variant="outlined" label="Thought" placeholder="It is my birthday today" multiline fullWidth rows={4} value={thoughtData.body} onChange={(e) => handleChange(e, 'body')} />
-                <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth>{ !submitted ? 'Submit' : 'Successful' }</Button>
+                <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth>{ !submitted ? 'Submit' : 'Completed' }</Button>
                 <Button className={classes.formItem} variant="contained" color="secondary" size="small" onClick={() => clear()}>Clear</Button>
             </form>
         </Paper>

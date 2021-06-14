@@ -1,8 +1,8 @@
 import { Grid } from '@material-ui/core'
 
-import useStyles from './styles'
 import Form from '../../components/Form/form'
 import AppBar from '../../components/AppBar/appBar'
+import useStyles from './styles'
 
 const CreateThoughtPage = () => {
     const classes = useStyles()
