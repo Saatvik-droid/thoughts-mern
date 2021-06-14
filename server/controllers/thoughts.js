@@ -1,9 +1,7 @@
-import { Router } from 'express'
 import mongoose from 'mongoose'
 
 import ThoughtModel from '../models/thought.js'
 
-const router = Router()
 
 export const getThoughts = async (req, res) => {
     try {
@@ -48,5 +46,3 @@ export const deleteThought = async (req, res) => {
 
     res.json({ message: 'Deleted Successfully' })
 }
-
-export default router
