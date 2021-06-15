@@ -16,7 +16,7 @@ export const createThought = (newThought) => async (dispatch) => {
 
         dispatch({ type: 'CREATE', payload: data })
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
