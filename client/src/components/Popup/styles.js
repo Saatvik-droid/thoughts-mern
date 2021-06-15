@@ -7,7 +7,8 @@ export default makeStyles(() => ({
         alignItems: 'center',
         display: 'flex',
         right: '5%',
-        bottom: 30,
+        bottom: '5%',
+        zIndex: 1
     },
     paper: {
         justifyContent: 'center',

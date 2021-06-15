@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
-import { TextField, Button, Paper, Typography } from '@material-ui/core'
+import { TextField, Button, Paper, Typography, Slide } from '@material-ui/core'
 
 import { createThought, updateThought } from '../../redux/actions/thoughts'
 import useStyles from './styles'
@@ -54,15 +54,31 @@ const Form = ({ type, id }) => {
             <Paper className={classes.paper}>
                 <Typography variant="h5" gutterBottom> { type } a Thought</Typography>
                 <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
-                    <TextField className={classes.formItem} error={titleError} variant="outlined" label="Title" placeholder="Beautiful day" fullWidth value={thoughtData.title} onChange={(e) => handleChange(e, 'title') } />
-                    <TextField className={classes.formItem} variant="outlined" label="Thought" placeholder="It is my birthday today" multiline fullWidth rows={4} value={thoughtData.body} onChange={(e) => handleChange(e, 'body')} />
-                    <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth>{ !submitted ? 'Submit' : 'Completed' }</Button>
-                    <Button className={classes.formItem} variant="contained" color="secondary" size="small" onClick={() => clear()}>Clear</Button>
+                    <TextField 
+                        className={classes.formItem} error={titleError} variant="outlined" 
+                        label="Title" placeholder="Beautiful day" fullWidth 
+                        value={thoughtData.title} onChange={(e) => handleChange(e, 'title') } 
+                    />
+                    <TextField 
+                        className={classes.formItem} variant="outlined" label="Thought"
+                        placeholder="It is my birthday today" multiline fullWidth 
+                        rows={4} value={thoughtData.body} onChange={(e) => handleChange(e, 'body')} 
+                    />
+                    <Button 
+                        className={classes.formItem} variant="contained" color="primary" 
+                        size="large" type="submit" fullWidth
+                    >
+                        { !submitted ? 'Submit' : 'Completed' }
+                    </Button>
+                    <Button 
+                        className={classes.formItem} variant="contained" color="secondary" 
+                        size="small" onClick={() => clear()}
+                    >
+                        Clear
+                    </Button>
                 </form>
             </Paper>
-            {
-                submitted ? <Popup /> : null
-            }
+            <Popup submited={submitted}/>
         </>
     )
 }
