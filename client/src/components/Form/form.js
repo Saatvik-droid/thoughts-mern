@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import PropTypes from 'prop-types'
-import { TextField, Button, Paper, Typography, Slide } from '@material-ui/core'
+import { TextField, Button, Paper, Typography } from '@material-ui/core'
 
 import { createThought, updateThought } from '../../redux/actions/thoughts'
 import useStyles from './styles'
@@ -12,6 +11,7 @@ const Form = ({ type, id }) => {
     const [thoughtData, setThoughtData] = useState(thought[0] ? thought[0] : { title: '', body: '' })
     const [titleError, setTitleError] = useState(false)
     const [submitted, setSubmitted] = useState(false)
+    
     const dispatch = useDispatch()
     const classes = useStyles()
 
@@ -78,14 +78,9 @@ const Form = ({ type, id }) => {
                     </Button>
                 </form>
             </Paper>
-            <Popup submited={submitted}/>
+            <Popup actionDone={submitted}/>
         </>
     )
-}
-
-Form.propTypes = {
-    type: PropTypes.string,
-    id: PropTypes.string
 }
 
 Form.defaultProps = {

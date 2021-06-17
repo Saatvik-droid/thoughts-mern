@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     container: {
-        position: 'absolute',
+        position: 'fixed',
         justifyContent: 'center',
         alignItems: 'center',
         display: 'flex',
@@ -13,6 +13,7 @@ export default makeStyles(() => ({
     paper: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
+        padding: '5px 10px 5px 10px',
+        backgroundColor: '#a1eddd'
     }
 }))

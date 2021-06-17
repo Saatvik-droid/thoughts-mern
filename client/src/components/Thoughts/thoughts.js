@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Grid, CircularProgress } from '@material-ui/core'
 
@@ -9,13 +10,19 @@ const Thoughts = () => {
     const classes = makeStyles()
 
     return (
-        thoughts.length > 0 ? (
-            <Grid className={classes.container} container spacing={2}>
-                {thoughts.map((thought) => (
-                    <Thought thought={thought}/>
-                ))}
-            </Grid> 
-        ) : <CircularProgress />
+        <>
+            {
+                thoughts.length > 0 ? (
+                    <Grid className={classes.container} container spacing={2}>
+                        { 
+                            thoughts.map((thought) => (
+                                <Thought key={thought._id} thought={thought} />
+                            ))
+                        }
+                    </Grid> 
+                ) : <CircularProgress />
+            }
+        </>
     )
 }
 
