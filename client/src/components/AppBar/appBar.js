@@ -4,7 +4,7 @@ import AddIcon from '@material-ui/icons/Add'
 
 import useStyles from './styles'
 
-const AppBar = () => {
+const CustomAppBar = () => {
     const classes = useStyles()
 
     return (
@@ -23,4 +23,4 @@ const AppBar = () => {
     )
 }
 
-export default AppBar
+export default CustomAppBar
