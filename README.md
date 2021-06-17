@@ -4,4 +4,5 @@ This is a small project demonstarting a CRUD web application using MERN stack. I
 
 # Setup
 [Server](https://github.com/Saatvik-droid/thoughts-mern/tree/main/server#set-up)
+
 [Client](https://github.com/Saatvik-droid/thoughts-mern/tree/main/client#getting-started-with-create-react-app)
