@@ -7,7 +7,6 @@ import { getThoughts } from '../../redux/actions/thoughts'
 import makeStyles from './styles'
 
 const Thoughts = () => {
-    const loading = useSelector((state) => state.thoughtsState.loading)
     const thoughts = useSelector((state) => state.thoughtsState.thoughts)
 
     const dispatch = useDispatch()
@@ -20,7 +19,7 @@ const Thoughts = () => {
     return (
         <>
             {
-                !loading ? (
+                thoughts.length > 0 ? (
                     <Grid className={classes.container} container spacing={2}>
                         { 
                             thoughts.map((thought) => (
