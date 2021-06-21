@@ -2,7 +2,6 @@ import mongoose from 'mongoose'
 
 import ThoughtModel from '../models/thought.js'
 
-
 export const getThoughts = async (req, res) => {
     try {
         const thoughts = await ThoughtModel.find()
@@ -20,6 +19,7 @@ export const createThought = async (req, res) => {
         await newThought.save()
 
         res.status(201).json(newThought)
+        res.redirect
     } catch (error) {
         res.status(409).json({ message: error.message })
     }
