@@ -1,19 +1,11 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { Grow, Grid } from '@material-ui/core'
 
 import AppBar from '../../components/AppBar/appBar'
 import Thoughts from '../../components/Thoughts/thoughts'
-import { getThoughts } from '../../redux/actions/thoughts'
 import useStyles from './styles'
 
 const HomePage = () => {
-  const dispatch = useDispatch()
   const classes = useStyles()
-
-  useEffect(() => {
-    dispatch(getThoughts())
-  }, [])
 
   return (
     <>

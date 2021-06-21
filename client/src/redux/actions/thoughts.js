@@ -1,25 +1,42 @@
 import * as api from '../api/index'
+import * as actionTypes from '../actionTypes'
 
 export const getThoughts = () => async (dispatch) => {
-    api.getThoughts()
-        .then(({ data }) => dispatch({ type: 'FETCH_ALL', payload: data }))
-        .catch(error => console.log(error))
+    dispatch({ type: actionTypes.GET_ALL })
+    try {
+        const { data } = await api.getThoughts()
+        dispatch({ type: actionTypes.GET_ALL_SUCCESS, payload: data })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const createThought = (newThought) => async (dispatch) => {
-    api.createThought(newThought)
-        .then(({ data }) => dispatch({ type: 'CREATE', payload: data }))
-        .catch(error => console.log(error))
+    dispatch({ type: actionTypes.CREATE })
+    try {
+        const { data } = await api.createThought(newThought)
+        dispatch({ type: actionTypes.CREATE_SUCCESS, payload: data})
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const updateThought = (id, updatedThought) => async (dispatch) => {
-    api.updateThought(id, updatedThought)
-        .then(({ data }) => dispatch({ type: 'UPDATE', payload: data }))
-        .catch(error => console.log(error))
+    dispatch({ type: actionTypes.UPDATE})
+    try {
+        const { data } = await api.updateThought(id, updatedThought)
+        dispatch({ type: actionTypes.UPDATE_SUCCESS, payload: data })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const deleteThought = (id) => async (dispatch) => {
-    api.deleteThought(id)
-        .then(() => dispatch({ type: 'DELETE', payload: id }))
-        .catch(error => console.log(error))
+    dispatch({ type: actionTypes.DELETE})
+    try {
+        await api.deleteThought(id)
+        dispatch({ type: actionTypes.DELETE_SUCCESS, payload: id })
+    } catch (error) {
+        console.log(error)
+    }
 }
