@@ -1,3 +1,5 @@
+import { push } from 'connected-react-router'
+
 import * as api from '../api/index'
 import * as actionTypes from '../actionTypes'
 
@@ -16,6 +18,7 @@ export const createThought = (newThought) => async (dispatch) => {
     try {
         const { data } = await api.createThought(newThought)
         dispatch({ type: actionTypes.CREATE_SUCCESS, payload: data})
+        dispatch(push('/'))
     } catch (error) {
         console.log(error)
     }
@@ -26,6 +29,7 @@ export const updateThought = (id, updatedThought) => async (dispatch) => {
     try {
         const { data } = await api.updateThought(id, updatedThought)
         dispatch({ type: actionTypes.UPDATE_SUCCESS, payload: data })
+        dispatch(push('/'))
     } catch (error) {
         console.log(error)
     }
