@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import CreateThoughtPage from './pages/CreateThought'
-import UpdateThoughtPage from './pages/UpdateThought';
-import HomePage from './pages/Home';
+import CreateThoughtPage from './views/CreateThought'
+import UpdateThoughtPage from './views/UpdateThought';
+import HomePage from './views/Home';
 
 const App = () => {
     return (
