@@ -41,14 +41,8 @@ const Thought = ({ thought }) => {
                             </Typography>
                         </CardContent>
                         <CardActions className={classes.actionsContainer}>
-                            <Button size="small" color="primary" href={`thoughts/edit/${thought._id}`}>
-                                EDIT
-                                <EditIcon />
-                            </Button>
-                            <Button style={{alignItems: "center", justifyContent: "center"}} size="small" color="secondary" onClick={() => delThought()}>
-                                DELETE
-                                <DeleteForeverIcon />
-                            </Button>
+                            <Button size="small" color="primary" href={`thoughts/edit/${thought._id}`} endIcon={<EditIcon />}> EDIT </Button>
+                            <Button style={{alignItems: "center", justifyContent: "center"}} size="small" color="secondary" onClick={() => delThought()} endIcone={<DeleteForeverIcon />}> DELETE </Button>
                         </CardActions>
                     </Card>
                 </Grid>
