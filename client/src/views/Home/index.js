@@ -9,14 +9,14 @@ const HomePage = () => {
 
   return (
     <>
-      <AppBar />
-      <Grow in>
-        <Grid className={classes.container} container>
-          <Grid item xs={11} sm={8} md={6}>
-            <Thoughts />
-          </Grid>
-        </Grid>
-      </Grow>  
+    	<AppBar />
+		<Grow in>
+			<Grid className={classes.container} container >
+				<Grid className={classes.container}item xs={11} sm={8} md={6}>
+					<Thoughts />
+				</Grid>
+			</Grid>
+		</Grow>  
     </>
   )
 }
