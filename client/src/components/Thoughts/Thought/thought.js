@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Card, CardContent, Typography, CardActions, Button, Grid } from '@material-ui/core'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+import EditIcon from '@material-ui/icons/Edit'
 
 import { deleteThought } from '../../../redux/actions/thoughts'
 import Popup from '../../Popup/popup'
@@ -39,8 +41,14 @@ const Thought = ({ thought }) => {
                                 </Typography>
                             </CardContent>
                             <CardActions className={classes.actionsContainer}>
-                                <Button size="small" href={`thoughts/edit/${thought._id}`}>EDIT</Button>
-                                <Button size="small" onClick={() => delThought()}>DELETE</Button>
+                                <Button size="small" color="primary" href={`thoughts/edit/${thought._id}`}>
+                                    EDIT
+                                    <EditIcon />
+                                </Button>
+                                <Button style={{alignItems: "center", justifyContent: "center"}} size="small" color="secondary" onClick={() => delThought()}>
+                                    DELETE
+                                    <DeleteForeverIcon />
+                                </Button>
                             </CardActions>
                         </Card>
                     </Grid>
