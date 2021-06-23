@@ -5,7 +5,7 @@ const thoughtSchema = mongoose.Schema({
     body: String,
     createdAt: {
         type: Date,
-        default: new Date()
+        default: Date.now
     }
 })
 

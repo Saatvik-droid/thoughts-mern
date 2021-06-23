@@ -19,7 +19,6 @@ export const createThought = async (req, res) => {
         await newThought.save()
 
         res.status(201).json(newThought)
-        res.redirect
     } catch (error) {
         res.status(409).json({ message: error.message })
     }
