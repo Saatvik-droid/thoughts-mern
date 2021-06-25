@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { DateTime } from 'luxon'
 import { Card, CardContent, Typography, CardActions, Button, Grid, Slide } from '@material-ui/core'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import EditIcon from '@material-ui/icons/Edit'
@@ -9,6 +10,10 @@ import Popup from '../../Popup/popup'
 import useStyles from './styles'
 
 const Thought = ({ thought }) => {
+    const relativeTime = DateTime.fromISO(thought.createdAt).toRelative()
+    const thoughtTime = relativeTime === '0 seconds ago' ? 'now' : relativeTime
+    const user = !null
+
     const [showThought, setShowThought] = useState(true)
     const [showPopup, setShowPopup] = useState(false)
 
@@ -30,20 +35,18 @@ const Thought = ({ thought }) => {
                 <Grid item>
                     <Card variant="outlined">
                         <CardContent>
-                            <Typography variant="h4">
-                                {thought.title}
-                            </Typography>
-                            <Typography className={classes.time} color="textSecondary" gutterBottom>
-                                {thought.time}
-                            </Typography>
-                            <Typography className={classes.body} variant="body2" component="p">
-                                {thought.body}
-                            </Typography>
+                            <Typography variant="h4"> {thought.title} </Typography>
+                            <Typography className={classes.time} color="textSecondary" gutterBottom> {thoughtTime} </Typography>
+                            { thought.body ? <Typography className={classes.body} variant="body1" component="p"> {thought.body} </Typography> : null }
                         </CardContent>
-                        <CardActions className={classes.actionsContainer}>
-                            <Button size="small" color="primary" href={`thoughts/edit/${thought._id}`} endIcon={<EditIcon />}> EDIT </Button>
-                            <Button style={{alignItems: "center", justifyContent: "center"}} size="small" color="secondary" onClick={() => delThought()} endIcone={<DeleteForeverIcon />}> DELETE </Button>
-                        </CardActions>
+                        {
+                            user ? (
+                                <CardActions className={classes.actionsContainer}>
+                                    <Button size="small" color="primary" href={`thoughts/edit/${thought._id}`} endIcon={<EditIcon />}> EDIT </Button>
+                                    <Button style={{alignItems: "center", justifyContent: "center"}} size="small" color="secondary" onClick={() => delThought()} endIcon={<DeleteForeverIcon />}> DELETE </Button>
+                                </CardActions>
+                            ) : null
+                        }
                     </Card>
                 </Grid>
             </Slide>

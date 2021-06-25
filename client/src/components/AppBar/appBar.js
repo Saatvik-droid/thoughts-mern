@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { AppBar, Typography, Toolbar, Button } from '@material-ui/core'
+import { AppBar, Typography, Toolbar, Button, Grid, Avatar } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
 import useStyles from './styles'
@@ -7,15 +7,21 @@ import useStyles from './styles'
 const CustomAppBar = () => {
     const classes = useStyles()
 
+    const user = null
+
     return (
-        <AppBar className={classes.appBar} position="static">
+        <AppBar className={classes.appBar} position="sticky">
             <Toolbar className={classes.toolBar}>
-                <Typography variant="h3" color="textPrimary" align="center">
-                    <Link className={classes.textLink} to="/"> Thoughts </Link>
-                </Typography>
-                <Button className={classes.button} variant="contained" color="primary" startIcon={<AddIcon />} href='/thoughts/create'>
-                    <Typography variant="button">Add</Typography>
-                </Button>
+                <Typography className={classes.textLink} component={Link} to='/' variant="h3" color="textPrimary" align="center"> Thoughts </Typography>
+                {
+                    user ? (
+                        <Avatar>A</Avatar>
+                    ) : (
+                        <Button className={classes.button} variant="contained" color="primary">
+                            <Typography variant="button">Log In</Typography>
+                        </Button>
+                    )
+                }
             </Toolbar>
         </AppBar>
     )
