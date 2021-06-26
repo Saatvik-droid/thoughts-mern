@@ -9,7 +9,6 @@ const CreateThoughtPage = () => {
 
     return (
         <>
-            <AppBar />
             <Grid className={classes.container} container >
                 <Grid item xs={11} sm={8} md={6}>
                     <Form />

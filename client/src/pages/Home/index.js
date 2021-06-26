@@ -11,7 +11,6 @@ const HomePage = () => {
 
   return (
         <>
-			<AppBar />
 			<Grow in>
 				<Grid className={classes.container} container>
 					<Grid className={classes.item} item xs={12} sm={9} md={6}>
