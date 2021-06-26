@@ -1,8 +1,6 @@
 import { Grow, Grid, Fab } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
-
-import AppBar from '../../components/AppBar/appBar'
 import Thoughts from '../../components/Thoughts/thoughts'
 import useStyles from './styles'
 

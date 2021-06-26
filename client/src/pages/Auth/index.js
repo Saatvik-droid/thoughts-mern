@@ -1,10 +1,17 @@
-import AppBar from '../../components/AppBar/appBar'
+import { Grid } from '@material-ui/core'
+
+import Form from '../../components/AuthForm/form'
+import useStyles from './styles'
 
 const AuthPage = () => {
+    const classes = useStyles()
+
     return (
-        <>
-            AUTH
-        </>
+        <Grid justify="center" container >
+            <Grid item xs={11} sm={8} md={6}>
+                <Form />
+            </Grid>
+        </Grid>
     )
 }
 

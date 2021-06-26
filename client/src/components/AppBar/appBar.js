@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { AppBar, Typography, Toolbar, Button, Grid, Avatar } from '@material-ui/core'
+import { AppBar, Typography, Toolbar, Button, Avatar } from '@material-ui/core'
 
 import useStyles from './styles'
 

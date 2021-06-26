@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     form: {
         display: 'flex',
         flexDirection: 'column',
@@ -8,9 +8,12 @@ export default makeStyles(() => ({
         alignItems: 'center'
     },
     formItem: {
-        marginBottom: 5
+        marginBottom: theme.spacing(1)
     },
     paper: {
-        padding: 10
+        padding: theme.spacing(2)
+    },
+    lockIcon: {
+        verticalAlign: 'middle'
     }
 }))

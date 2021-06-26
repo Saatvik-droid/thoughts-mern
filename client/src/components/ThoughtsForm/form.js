@@ -1,3 +1,9 @@
+/*
+* TODO:
+* ~Use InputField in place of TextField.
+*/
+
+
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { TextField, Button, Paper, Typography } from '@material-ui/core'
@@ -5,7 +11,7 @@ import { TextField, Button, Paper, Typography } from '@material-ui/core'
 import { createThought, updateThought } from '../../redux/actions/thoughts'
 import useStyles from './styles'
 
-const Form = ({ type, id }) => {
+const ThoughtsForm = ({ type, id }) => {
     const thought = useSelector(state => state.thoughtsState.thoughts.filter(thought => thought._id === id))
     
     const [thoughtData, setThoughtData] = useState(thought[0] ? thought[0] : { title: '', body: '' })
@@ -50,16 +56,16 @@ const Form = ({ type, id }) => {
             <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
                 <TextField className={classes.formItem} error={titleError} variant="outlined" label="Title" placeholder="Beautiful day" fullWidth value={thoughtData.title} onChange={(e) => handleChange(e, 'title') } />
                 <TextField className={classes.formItem} variant="outlined" label="Thought" placeholder="It is my birthday today" multiline fullWidth rows={4} value={thoughtData.body} onChange={(e) => handleChange(e, 'body')} />
-                <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth > Submit </Button>
-                <Button className={classes.formItem} variant="contained" color="secondary" size="small" onClick={() => clear()} > Clear </Button>
+                <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
+                <Button className={classes.formItem} variant="contained" color="secondary" size="small" onClick={() => clear()}> Clear </Button>
             </form>
         </Paper>
     )
 }
 
-Form.defaultProps = {
+ThoughtsForm.defaultProps = {
     type: 'Creating',
     id: ''
 }
 
-export default Form
+export default ThoughtsForm

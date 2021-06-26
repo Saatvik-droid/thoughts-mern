@@ -6,8 +6,8 @@ const Popup = ({ actionDone }) => {
     const classes = useStyles()
 
     return (
-        <Slide style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}direction="up" in={actionDone} mountOnEnter unmountOnExit>
-            <Grid className={classes.container} container>
+        <Slide className={classes.slide} direction="up" in={actionDone} mountOnEnter unmountOnExit>
+            <Grid container>
                 <Paper className={classes.paper}>
                     <Typography>Deleting</Typography>
                 </Paper>

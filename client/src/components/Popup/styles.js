@@ -1,15 +1,18 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
-    container: {
+    slide: {
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
         position: 'fixed',
         left: 0,
         right: 0,
-        bottom: '5%'
+        bottom: theme.spacing(5)
     },
     paper: {
         display: 'flex',
-        padding: '5px 10px 5px 10px',
-        backgroundColor: '#a1eddd'
+        padding: theme.spacing(1),
+        backgroundColor: theme.palette.success.light
     }
 }))
