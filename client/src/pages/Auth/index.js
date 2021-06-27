@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core'
 
-import Form from '../../components/AuthForm/form'
+import AuthForm from '../../components/AuthForm/form'
 import useStyles from './styles'
 
 const AuthPage = () => {
@@ -9,7 +9,7 @@ const AuthPage = () => {
     return (
         <Grid justify="center" container >
             <Grid item xs={11} sm={8} md={6}>
-                <Form />
+                <AuthForm />
             </Grid>
         </Grid>
     )

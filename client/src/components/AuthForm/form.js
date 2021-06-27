@@ -3,7 +3,7 @@ import * as EmailValidator from 'email-validator'
 import { Grid, Paper, Typography, Button } from '@material-ui/core'
 import LockIcon from '@material-ui/icons/Lock'
 
-import InputField from '../InputField/inputField'
+import CustomTextField from '../CustomTextField/customTextField'
 import useStyles from './styles'
 
 const AuthForm = () => {
@@ -43,14 +43,14 @@ const AuthForm = () => {
                     {
                         !isLogIn && (
                             <>
-                                <InputField name="firstName" label="First Name" placeholder="John" handleChange={handleChnage} autoFocus half/>
-                                <InputField name="lastName" label="First Name" placeholder="Smith" handleChange={handleChnage} half/>
+                                <CustomTextField name="firstName" label="First Name" placeholder="John" handleChange={handleChnage} autoFocus half/>
+                                <CustomTextField name="lastName" label="First Name" placeholder="Doe" handleChange={handleChnage} half/>
                             </>
                         )
                     }
-                    <InputField name='email' label="Email" placeholder="example@dummy.com" handleChange={handleChnage} error={emailError}/>
-                    <InputField name="password" label="Password" handleChange={handleChnage} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} error={passwordError} half/>
-                    <InputField name="confirmPassword" label="Confirm Password" handleChange={handleChnage} error={passwordError} half/>
+                    <CustomTextField name='email' label="Email" placeholder="example@dummy.com" handleChange={handleChnage} error={emailError} autoFocus={isLogIn}/>
+                    <CustomTextField name="password" label="Password" handleChange={handleChnage} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} half/>
+                    <CustomTextField name="confirmPassword" label="Confirm Password" handleChange={handleChnage} error={passwordError} half/>
                     <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
                 </Grid>
             </form>

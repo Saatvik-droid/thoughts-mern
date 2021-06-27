@@ -11,5 +11,5 @@ export default makeStyles(() => ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-    }
+    },
 }))

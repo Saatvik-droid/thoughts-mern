@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { DateTime } from 'luxon'
-import { Card, CardContent, Typography, CardActions, Button, Grid, Slide } from '@material-ui/core'
+import { Card, CardContent, Typography, CardActions, Grid, Slide, IconButton } from '@material-ui/core'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import EditIcon from '@material-ui/icons/Edit'
 
@@ -37,15 +37,15 @@ const Thought = ({ thought }) => {
                         <CardContent>
                             <Typography variant="h4"> {thought.title} </Typography>
                             <Typography className={classes.time} color="textSecondary" gutterBottom> {thoughtTime} </Typography>
-                            { thought.body ? <Typography className={classes.body} variant="body1" component="p"> {thought.body} </Typography> : null }
+                            { thought.body && <Typography className={classes.body} variant="body1" component="p"> {thought.body} </Typography> }
                         </CardContent>
                         {
-                            user ? (
+                            user && (
                                 <CardActions className={classes.actionsContainer}>
-                                    <Button size="small" color="primary" href={`thoughts/edit/${thought._id}`} endIcon={<EditIcon />}> EDIT </Button>
-                                    <Button style={{alignItems: "center", justifyContent: "center"}} size="small" color="secondary" onClick={() => delThought()} endIcon={<DeleteForeverIcon />}> DELETE </Button>
+                                    <IconButton color="primary" href={`thoughts/edit/${thought._id}`}><EditIcon /></IconButton>
+                                    <IconButton color="primary" onClick={delThought}><DeleteForeverIcon /></IconButton>
                                 </CardActions>
-                            ) : null
+                            )
                         }
                     </Card>
                 </Grid>
