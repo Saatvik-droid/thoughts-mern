@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { Grow, Grid, Fab } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
@@ -5,7 +6,8 @@ import Thoughts from '../../components/Thoughts/thoughts'
 import useStyles from './styles'
 
 const HomePage = () => {
-	const user = null
+	const user = useSelector((state) => state.authState.authData)
+
     const classes = useStyles()
 
     return (

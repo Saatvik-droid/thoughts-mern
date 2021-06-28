@@ -1,13 +1,12 @@
 export const GET_ALL = "GET_ALL"
-export const GET_ALL_SUCCESS = "GET_ALL_SUCCESS"
 export const GET_ALL_ERROR = "GET_ALL_ERROR"
 export const CREATE = "POST"
-export const CREATE_SUCCESS = "POST_SUCCESS"
 export const CREATE_ERROR = "POST_ERROR"
 export const UPDATE = "PATCH"
-export const UPDATE_SUCCESS = "PATCH_SUCCESS"
 export const UPDATE_ERROR = "PATCH_ERROR"
 export const DELETE = "DELETE"
-export const DELETE_SUCCESS = "DELETE_SUCCESS"
 export const DELETE_ERROR = "DELETE_ERROR"
+
+export const AUTH = 'AUTH'
+export const LOGOUT = 'LOGOUT'
 

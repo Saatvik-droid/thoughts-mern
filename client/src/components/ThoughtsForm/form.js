@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Paper, Typography, Grid } from '@material-ui/core'
 
@@ -8,7 +8,7 @@ import useStyles from './styles'
 
 const ThoughtsForm = ({ type, id }) => {
     const thought = useSelector(state => state.thoughtsState.thoughts.filter(thought => thought._id === id))
-    
+
     const [thoughtData, setThoughtData] = useState(thought[0] ? thought[0] : { title: '', body: '' })
     const [titleError, setTitleError] = useState(false)
 

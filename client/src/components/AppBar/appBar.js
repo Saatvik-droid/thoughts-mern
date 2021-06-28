@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { AppBar, Typography, Toolbar, Button, Avatar } from '@material-ui/core'
 
 import useStyles from './styles'
 
 const CustomAppBar = () => {
-    const classes = useStyles()
+    const user = useSelector((state) => state.authState.authData)
 
-    const user = null
+    const classes = useStyles()
 
     return (
         <AppBar className={classes.appBar} position="sticky">
@@ -14,10 +15,10 @@ const CustomAppBar = () => {
                 <Typography className={classes.textLink} component={Link} to='/' variant="h3" color="textPrimary" align="center"> Thoughts </Typography>
                 {
                     user ? (
-                        <Avatar>user.re</Avatar>
+                        <Avatar>{user.profile.givenName.charAt(0)}</Avatar>
                     ) : (
                         <Button className={classes.button} component={Link} to="/auth" variant="contained" color="primary">
-                            <Typography variant="button">Log In</Typography>
+                            <Typography variant="button">Sign In</Typography>
                         </Button>
                     )
                 }

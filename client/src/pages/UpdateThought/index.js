@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
 
-import Form from '../../components/ThoughtsForm/form'
+import ThoughtsForm from '../../components/ThoughtsForm/form'
 import useStyles from './styles'
 
 const UpdateThoughtPage = () => {
@@ -11,7 +11,7 @@ const UpdateThoughtPage = () => {
     return (
         <Grid className={classes.container} container >
             <Grid item xs={11} sm={8} md={6}>
-                <Form type="Editing" id={id} />
+                <ThoughtsForm type="Editing" id={id} />
             </Grid>
         </Grid>
     )
