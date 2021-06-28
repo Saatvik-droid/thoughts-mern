@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import * as EmailValidator from 'email-validator'
+import clsx from 'clsx'
 import { Grid, Paper, Typography, Button } from '@material-ui/core'
 import LockIcon from '@material-ui/icons/Lock'
 
@@ -38,8 +39,8 @@ const AuthForm = () => {
                 { isLogIn ? 'Log In' : 'Sign Up' }
                 <LockIcon className={classes.lockIcon} />
             </Typography>
-            <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
-                <Grid container spacing={2}>
+            <form className={clsx(classes.formContainer, classes.column)} autoComplete="off" onSubmit={handleSubmit}>
+                <Grid className={classes.formContainer} container spacing={2}>
                     {
                         !isLogIn && (
                             <>
@@ -52,6 +53,7 @@ const AuthForm = () => {
                     <CustomTextField name="password" label="Password" handleChange={handleChnage} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} half/>
                     <CustomTextField name="confirmPassword" label="Confirm Password" handleChange={handleChnage} error={passwordError} half/>
                     <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
+                    <Button className={classes.formItem} color="secondary" size="small" onClick={() => setIsLogIn(!isLogIn)}> { isLogIn ? 'Don\'t have an account?' : 'Already have an account' }</Button>
                 </Grid>
             </form>
         </Paper>

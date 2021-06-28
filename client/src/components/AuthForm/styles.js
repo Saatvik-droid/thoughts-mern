@@ -1,9 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
-    form: {
+    column: {
+        flexDirection: 'column'
+    },
+    formContainer: {
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
     },

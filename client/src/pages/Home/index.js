@@ -5,9 +5,10 @@ import Thoughts from '../../components/Thoughts/thoughts'
 import useStyles from './styles'
 
 const HomePage = () => {
-  const classes = useStyles()
+	const user = null
+    const classes = useStyles()
 
-  return (
+    return (
         <>
 			<Grow in>
 				<Grid className={classes.container} container>
@@ -16,9 +17,13 @@ const HomePage = () => {
 					</Grid>
 				</Grid>
 			</Grow>
-			<Fab className={classes.fab} size="large" color="primary" aria-label="add" href="/thoughts/create">
-				<AddIcon />
-			</Fab>
+			{
+				user && (
+					<Fab className={classes.fab} size="large" color="primary" aria-label="add" href="/thoughts/create">
+						<AddIcon />
+					</Fab>
+				)
+			}
 		</>  
 	)
 }
