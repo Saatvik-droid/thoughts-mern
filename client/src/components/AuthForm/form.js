@@ -56,7 +56,7 @@ const AuthForm = () => {
     }
 
     return (
-        user && (
+        !user && (
             <Paper className={classes.paper}>
                 <Typography variant="h5" gutterBottom>
                     { isLogIn ? 'Log In' : 'Sign Up' }

@@ -37,8 +37,8 @@ const ThoughtsForm = ({ type, id }) => {
             <Typography variant="h5" gutterBottom> { type } a Thought</Typography>
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <Grid className={classes.form} container spacing={2}>
-                    <CustomtextField name="title" label="Title" placeholder="Beautiful day" handleChange={handleChange} autoFocus />
-                    <CustomtextField name="body" label="Thought" placeholder="It is my birthday today" handleChange={handleChange} multiline rows={4} />
+                    <CustomtextField name="title" label="Title" placeholder="Beautiful day" defaultValue={thoughtData.title} handleChange={handleChange} autoFocus />
+                    <CustomtextField name="body" label="Thought" placeholder="It is my birthday today" defaultValue={thoughtData.body} handleChange={handleChange} multiline rows={4} />
                     <Button className={classes.formItem} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
                 </Grid>
             </form>
