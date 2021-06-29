@@ -13,6 +13,10 @@ export default makeStyles((theme) => ({
     button: {
         backgroundColor: '#00a0b2'
     },
+    buttonContainer: {
+        display: 'flex',
+        alignItems: 'center'
+    },
     textLink: {
         textDecoration: 'inherit'
     }

@@ -6,9 +6,9 @@ import { Grid, Paper, Typography, Button } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login'
 import LockIcon from '@material-ui/icons/Lock'
 
+import { AUTH } from '../../redux/actionTypes'
 import CustomTextField from '../CustomTextField/customTextField'
 import useStyles from './styles'
-import { AUTH } from '../../redux/actionTypes'
 
 const AuthForm = () => {
     const user = useSelector((state) => state.authState.authData)

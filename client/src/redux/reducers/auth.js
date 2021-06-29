@@ -9,7 +9,7 @@ export default (authState = initialState, action) => {
         case AUTH:
             return { ...authState, authData: action.payload }
         case LOGOUT:
-            return authState
+            return { ...authState, authData: null }
         default:
              return authState
     }
