@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
     },
     fab: {
-        position: 'absolute',
+        position: 'fixed',
         bottom: theme.spacing(5),
         right: theme.spacing(10)
     }

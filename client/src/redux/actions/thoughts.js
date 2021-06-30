@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router'
 
-import * as api from '../api/index'
+import * as api from '../api'
 import { GET_ALL, GET_ALL_ERROR, CREATE, CREATE_ERROR, UPDATE, UPDATE_ERROR, DELETE, DELETE_ERROR } from '../actionTypes'
 
 export const getThoughts = () => async (dispatch) => {

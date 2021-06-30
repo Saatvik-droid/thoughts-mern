@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     time: {
         fontSize: 12
     },
@@ -12,4 +12,8 @@ export default makeStyles(() => ({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+    cardItem: {
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
+    }
 }))

@@ -1,8 +1,21 @@
 import mongoose from 'mongoose'
 
 const thoughtSchema = mongoose.Schema({
-    title: String,
+    title: {
+        type: String,
+        required: true
+    },
     body: String,
+    author: {
+        _id: {
+            type: String,
+            required: true
+        },
+        name: {
+            type: String,
+            required: true
+        }
+    },
     createdAt: {
         type: Date,
         default: Date.now

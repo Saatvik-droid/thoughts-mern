@@ -14,13 +14,9 @@ const UserAvatar = ({ user, showDropdown }) => {
     const dispatch = useDispatch()
     const classes = useStyles()
 
-    const handleMenuArrowCLick = (e) => {
-        setAnchorEl(e.currentTarget)
-    }
+    const handleMenuArrowCLick = (e) => setAnchorEl(e.currentTarget)
 
-    const closeMenu = () => {
-        setAnchorEl(null)
-    }
+    const closeMenu = () => setAnchorEl(null)
 
     const userLogout = () => {
         closeMenu()
@@ -46,7 +42,9 @@ const UserAvatar = ({ user, showDropdown }) => {
                         transformOrigin={{ vertical: 'top', horizontal: 'center', }} 
                         onClose={closeMenu}
                     >
-                        <MenuItem onClick={userLogout}> Logout </MenuItem>
+                        <MenuItem onClick={userLogout}> 
+                            Logout
+                        </MenuItem>
                     </Menu>
                 )
             }

@@ -4,6 +4,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 
 import thoughtsRoutes from './routes/thoughts.js'
+import userRoutes from './routes/users.js'
 
 const app = express()
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.use('/thoughts', thoughtsRoutes)
+app.use('/user', userRoutes)
 
 const MONGO_URI = process.env.MONGO_URI
 const PORT = process.env.PORT || 5000

@@ -2,7 +2,7 @@ import { Grid, TextField, InputAdornment, IconButton } from '@material-ui/core'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
-const CustomTextField = ({ name, label, handleChange, placeholder, type, autoFocus, half, handleShowPassword, error, multiline, rows, defaultValue }) => {
+const CustomTextField = ({ name, label, handleChange, placeholder, type, autoFocus, half, handleShowPassword, error, multiline, rows, defaultValue, notRequired }) => {
     return (
         <Grid item style={{ width: half ? '50%' : '100%' }}>
             <TextField 
@@ -11,7 +11,7 @@ const CustomTextField = ({ name, label, handleChange, placeholder, type, autoFoc
                 label={label}
                 placeholder={placeholder}
                 defaultValue={defaultValue}
-                required
+                required={!notRequired}
                 fullWidth
                 multiline={multiline}
                 rows={rows}
