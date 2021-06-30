@@ -1,17 +1,16 @@
-import { AUTH, LOGOUT } from '../actionTypes'
+import { AUTH, LOGOUT } from "../actionTypes";
 
 const initialState = {
-    authData: null
-}
+  authData: null,
+};
 
 export default (authState = initialState, action) => {
-    switch(action.type) {
-        case AUTH:
-            return { ...authState, authData: action.payload }
-        case LOGOUT:
-            return { ...authState, authData: null }
-        default:
-             return authState
-    }
-
-}
+  switch (action.type) {
+    case AUTH:
+      return { ...authState, authData: action.payload };
+    case LOGOUT:
+      return { ...authState, authData: null };
+    default:
+      return authState;
+  }
+};

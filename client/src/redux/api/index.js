@@ -1,28 +1,29 @@
 import axios from "axios";
 
 // Cannot access store outside a react hook, so I am directly subscribing to the store.
-import { store } from '../store'
+import { store } from "../store";
 
-let user
+let user;
 
 const getUser = () => {
-    user = store.getState().authState.authData
-}
+  user = store.getState().authState.authData;
+};
 
-store.subscribe(getUser)
+store.subscribe(getUser);
 
-const API = axios.create({ baseURL: 'http://localhost:5000' })
+const API = axios.create({ baseURL: "http://localhost:5000" });
 
 API.interceptors.request.use((req) => {
-    if (user) req.headers.Authorization = `Bearer ${user.token}`
+  if (user) req.headers.Authorization = `Bearer ${user.token}`;
 
-    return req
-})
+  return req;
+});
 
-export const getThoughts = () => API.get('/thoughts')
-export const createThought = (newThought) => API.post('/thoughts', newThought)
-export const updateThought = (id, updatedThought) => API.patch(`/thoughts/${id}`, updatedThought)
-export const deleteThought = (id) => API.delete(`/thoughts/${id}`)
+export const getThoughts = () => API.get("/thoughts");
+export const createThought = (newThought) => API.post("/thoughts", newThought);
+export const updateThought = (id, updatedThought) =>
+  API.patch(`/thoughts/${id}`, updatedThought);
+export const deleteThought = (id) => API.delete(`/thoughts/${id}`);
 
-export const signIn = (authData) => API.post('user/signin', authData)
-export const signUp = (authData) => API.post('/user/signup', authData)
+export const signIn = (authData) => API.post("user/signin", authData);
+export const signUp = (authData) => API.post("/user/signup", authData);

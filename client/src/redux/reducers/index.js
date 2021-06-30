@@ -1,11 +1,12 @@
-import { combineReducers } from 'redux'
-import { connectRouter } from 'connected-react-router'
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
 
-import thoughtsReducer from './thoughts'
-import authReducer from './auth'
+import thoughtsReducer from "./thoughts";
+import authReducer from "./auth";
 
-export default(history) => combineReducers({ 
+export default (history) =>
+  combineReducers({
     router: connectRouter(history),
     thoughtsState: thoughtsReducer,
-    authState: authReducer 
-})
+    authState: authReducer,
+  });
