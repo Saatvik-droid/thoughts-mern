@@ -1,21 +1,34 @@
 import { Link } from 'react-router-dom'
-import { AppBar, Typography, Toolbar, Button } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
+import { useSelector } from 'react-redux'
+import { AppBar, Typography, Toolbar, Button, Grid } from '@material-ui/core'
 
+import UserAvatar from '../UserAvatar/userAvatar'
 import useStyles from './styles'
 
 const CustomAppBar = () => {
+    const user = useSelector((state) => state.authState.authData)
+
     const classes = useStyles()
 
     return (
-        <AppBar className={classes.appBar} position="static">
-            <Toolbar className={classes.toolBar}>
-                <Typography variant="h3" color="textPrimary" align="center">
-                    <Link className={classes.textLink} to="/"> Thoughts </Link>
-                </Typography>
-                <Button className={classes.button} variant="contained" color="primary" startIcon={<AddIcon />} href='/thoughts/create'>
-                    <Typography variant="button">Add</Typography>
-                </Button>
+        <AppBar className={classes.appBar} position="sticky">
+            <Toolbar>
+                <Grid container justify="space-between" direction="row">
+                    <Grid item>
+                        <Typography className={classes.textLink} component={Link} to='/' variant="h3" color="textPrimary" align="center"> Thoughts </Typography>
+                    </Grid>
+                    {
+                        user ? (
+                            <UserAvatar user={user} showDropdown/>
+                        ) : (
+                            <Grid className={classes.buttonContainer} item>
+                                <Button className={classes.button} component={Link} to="/auth" variant="contained" color="primary" size="medium">
+                                    <Typography variant="button">Sign In</Typography>
+                                </Button>
+                            </Grid>    
+                        )
+                    }
+                </Grid>
             </Toolbar>
         </AppBar>
     )
