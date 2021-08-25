@@ -1,22 +1,8 @@
 import axios from "axios";
 
-// Cannot access store outside a react hook, so I am directly subscribing to the store.
-import { store } from "../store";
-
-let user;
-
-const getUser = () => {
-  user = store.getState().authState.authData;
-};
-
-store.subscribe(getUser);
-
-const API = axios.create({ baseURL: "http://localhost:5000" });
-
-API.interceptors.request.use((req) => {
-  if (user) req.headers.Authorization = `Bearer ${user.token}`;
-
-  return req;
+const API = axios.create({
+  baseURL: "http://localhost:5000",
+  withCredentials: true,
 });
 
 export const getThoughts = () => API.get("/thoughts");

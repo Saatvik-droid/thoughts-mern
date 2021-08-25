@@ -24,6 +24,7 @@ export const signIn = async (req, res) => {
 
     res
       .status(200)
+      .cookie("token", token, { httpOnly: true })
       .json({
         profile: { _id: user._id, email: user.email, givenName: user.name },
         token: token,
@@ -63,6 +64,7 @@ export const signUp = async (req, res) => {
 
     res
       .status(200)
+      .cookie("token, token, {httpOnly: true")
       .json({
         profile: { _id: user._id, email: user.email, givenName: user.name },
         token: token,
