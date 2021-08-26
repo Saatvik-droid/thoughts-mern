@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { DateTime } from "luxon";
 import { Grid, CircularProgress } from "@material-ui/core";
 
 import { getThoughts } from "../../redux/actions/thoughts";
@@ -18,9 +19,14 @@ const Thoughts = () => {
 
   return thoughts.length > 0 ? (
     <Grid className={classes.container} container spacing={2}>
-      {thoughts.map((thought) => (
-        <Thought key={thought._id} thought={thought} />
-      ))}
+      {thoughts
+        .sort(
+          (a, b) =>
+            DateTime.fromISO(b.createdAt) - DateTime.fromISO(a.createdAt)
+        )
+        .map((thought) => (
+          <Thought key={thought._id} thought={thought} />
+        ))}
     </Grid>
   ) : (
     <CircularProgress />
