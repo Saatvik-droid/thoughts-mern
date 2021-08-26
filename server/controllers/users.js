@@ -27,7 +27,6 @@ export const signIn = async (req, res) => {
       .cookie("token", token, { httpOnly: true })
       .json({
         profile: { _id: user._id, email: user.email, givenName: user.name },
-        token: token,
       });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong." });
@@ -64,10 +63,9 @@ export const signUp = async (req, res) => {
 
     res
       .status(200)
-      .cookie("token, token, {httpOnly: true")
+      .cookie("token", token, { httpOnly: true })
       .json({
         profile: { _id: user._id, email: user.email, givenName: user.name },
-        token: token,
       });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
