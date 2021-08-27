@@ -8,6 +8,8 @@ import {
   CREATE_ERROR,
   UPDATE,
   UPDATE_ERROR,
+  LIKE,
+  LIKE_ERROR,
   DELETE,
   DELETE_ERROR,
 } from "../actionTypes";
@@ -36,6 +38,15 @@ export const updateThought = (id, updatedThought) => async (dispatch) => {
     const { data } = await api.updateThought(id, updatedThought);
     dispatch({ type: UPDATE, payload: data });
     dispatch(push("/"));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const likeThought = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likeThought(id);
+    dispatch({ type: LIKE, payload: data });
   } catch (error) {
     console.log(error);
   }

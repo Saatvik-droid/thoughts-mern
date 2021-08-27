@@ -10,7 +10,6 @@ export default makeStyles((theme) => ({
   actionsContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
   },
   cardItem: {
     paddingTop: theme.spacing(1),

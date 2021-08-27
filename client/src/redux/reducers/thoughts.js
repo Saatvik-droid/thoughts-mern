@@ -5,6 +5,8 @@ import {
   CREATE_ERROR,
   UPDATE,
   UPDATE_ERROR,
+  LIKE,
+  LIKE_ERROR,
   DELETE,
   DELETE_ERROR,
 } from "../actionTypes";
@@ -32,11 +34,21 @@ export default (thoughtsState = initialState, action) => {
       return {
         ...thoughtsState,
         thoughts: thoughtsState.thoughts.map((thought) =>
-          thought._id === action.payload_id ? action.payload : thought
+          thought._id === action.payload._id ? action.payload : thought
         ),
         error: null,
       };
     case UPDATE_ERROR:
+      return { ...thoughtsState, error: action.payload };
+    case LIKE:
+      return {
+        ...thoughtsState,
+        thoughts: thoughtsState.thoughts.map((thought) =>
+          thought._id === action.payload._id ? action.payload : thought
+        ),
+        error: null,
+      };
+    case LIKE_ERROR:
       return { ...thoughtsState, error: action.payload };
     case DELETE:
       return {

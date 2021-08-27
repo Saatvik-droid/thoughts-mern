@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DateTime } from "luxon";
 import clsx from "clsx";
@@ -13,8 +13,9 @@ import {
 } from "@material-ui/core";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import EditIcon from "@material-ui/icons/Edit";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 
-import { deleteThought } from "../../../redux/actions/thoughts";
+import { likeThought, deleteThought } from "../../../redux/actions/thoughts";
 import Popup from "../../Popup/popup";
 import useStyles from "./styles";
 
@@ -24,11 +25,22 @@ const Thought = ({ thought }) => {
   const relativeTime = DateTime.fromISO(thought.createdAt).toRelative();
   const thoughtTime = relativeTime === "0 seconds ago" ? "now" : relativeTime;
 
+  const [likedByUser, setLikedByUser] = useState(thought.likedByUser);
   const [showThought, setShowThought] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
 
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  useEffect(() => {
+    setLikedByUser(thought.likedByUser);
+    console.log(thought);
+  }, [thought.likedByUser]);
+
+  const likeThisThought = () => {
+    dispatch(likeThought(thought._id));
+    // setLikedByUser(!likedByUser);
+  };
 
   const delThought = () => {
     dispatch(deleteThought(thought._id));
@@ -38,6 +50,11 @@ const Thought = ({ thought }) => {
       setShowPopup(false);
     }, 3000);
   };
+
+  // TODO:
+  // 1.CHECK IF LIKED BY USER
+  // 2.CHANGE ThumbUpAltIcon COLOR AS PER 1
+  //3.SHOW LIKED BUTTON FOR EVERYONE
 
   return (
     <>
@@ -79,6 +96,12 @@ const Thought = ({ thought }) => {
             </CardContent>
             {user?.profile._id === thought.author._id && (
               <CardActions className={classes.actionsContainer}>
+                <IconButton
+                  color={likedByUser ? "primary" : "default"}
+                  onClick={likeThisThought}
+                >
+                  <ThumbUpAltIcon />
+                </IconButton>
                 <IconButton
                   color="primary"
                   href={`thoughts/edit/${thought._id}`}

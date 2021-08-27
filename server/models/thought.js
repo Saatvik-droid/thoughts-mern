@@ -20,6 +20,10 @@ const thoughtSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  likedByUsersList: {
+    type: Array,
+    default: [],
+  },
 });
 
 const ThoughtModel = mongoose.model("ThoughtSchema", thoughtSchema);
