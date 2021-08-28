@@ -13,7 +13,7 @@ const CustomAppBar = () => {
   return (
     <AppBar className={classes.appBar} position="sticky">
       <Toolbar>
-        <Grid container justify="space-between" direction="row">
+        <Grid container justifyContent="space-between" direction="row">
           <Grid item>
             <Typography
               className={classes.textLink}

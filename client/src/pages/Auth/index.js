@@ -7,7 +7,7 @@ const AuthPage = () => {
   const classes = useStyles();
 
   return (
-    <Grid justify="center" container>
+    <Grid justifyContent="center" container>
       <Grid item xs={11} sm={8} md={6}>
         <AuthForm />
       </Grid>

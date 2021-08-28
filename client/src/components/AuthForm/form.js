@@ -59,7 +59,12 @@ const AuthForm = () => {
           <LockIcon className={classes.lockIcon} />
         </Typography>
         <form className={classes.formContainer} onSubmit={handleSubmit}>
-          <Grid container justify="center" alignItems="center" spacing={2}>
+          <Grid
+            container
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+          >
             {!isLogIn && (
               <>
                 <CustomTextField

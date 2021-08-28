@@ -29,7 +29,7 @@ const UserAvatar = ({ user, showDropdown }) => {
       container
       item
       direction="row"
-      justify="flex-end"
+      justifyContent="flex-end"
       alignItems="center"
       xs={3}
       sm={2}
