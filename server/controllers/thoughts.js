@@ -4,7 +4,7 @@ import ThoughtModel from "../models/thought.js";
 
 //TODO:
 //1.SORT THOUGHTS BY DATE
-//2.SEND ONLY lean() OBJECTS
+//2.SEND ONLY JS OBJECTS
 //3.USE findOne() and save()
 //4.USE OFFSET TO SEND DATA IN PACKETS TO IMPLEMENT INFINITE SCROLLING LATER ON
 

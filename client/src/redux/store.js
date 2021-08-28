@@ -9,21 +9,21 @@ import thunk from "redux-thunk";
 import authReducer from "./reducers/auth";
 import thoughtsReducer from "./reducers/thoughts";
 
-const localPersistConfig = {
-  key: "local",
-  storage,
+const authPersistConfig = {
+  key: "auth",
+  storage: sessionStorage,
 };
 
-const sessionPersistConfig = {
-  key: "session",
+const thoughtsPersistConfig = {
+  key: "thoughts",
   storage: sessionStorage,
 };
 
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
-  thoughtsState: persistReducer(localPersistConfig, thoughtsReducer),
-  authState: persistReducer(sessionPersistConfig, authReducer),
+  thoughtsState: persistReducer(thoughtsPersistConfig, thoughtsReducer),
+  authState: persistReducer(authPersistConfig, authReducer),
   router: connectRouter(history),
 });
 

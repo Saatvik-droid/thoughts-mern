@@ -34,12 +34,10 @@ const Thought = ({ thought }) => {
 
   useEffect(() => {
     setLikedByUser(thought.likedByUser);
-    console.log(thought);
   }, [thought.likedByUser]);
 
   const likeThisThought = () => {
     dispatch(likeThought(thought._id));
-    // setLikedByUser(!likedByUser);
   };
 
   const delThought = () => {
@@ -52,9 +50,7 @@ const Thought = ({ thought }) => {
   };
 
   // TODO:
-  // 1.CHECK IF LIKED BY USER
-  // 2.CHANGE ThumbUpAltIcon COLOR AS PER 1
-  //3.SHOW LIKED BUTTON FOR EVERYONE
+  //4.SWITCH TO LIKE DISLIKE INSTEAD OF LIKE ONLY AND ERROR ON LIKING AGAIN
 
   return (
     <>
@@ -67,7 +63,7 @@ const Thought = ({ thought }) => {
                 container
                 alignItems="center"
                 style={{ paddingBottom: 10 }}
-                justify="space-between"
+                justifyContent="space-between"
                 direction="row"
               >
                 <Typography variant="h4"> {thought.title} </Typography>
@@ -94,25 +90,28 @@ const Thought = ({ thought }) => {
                 Made by {thought.author.name}
               </Typography>
             </CardContent>
-            {user?.profile._id === thought.author._id && (
-              <CardActions className={classes.actionsContainer}>
-                <IconButton
-                  color={likedByUser ? "primary" : "default"}
-                  onClick={likeThisThought}
-                >
-                  <ThumbUpAltIcon />
-                </IconButton>
-                <IconButton
-                  color="primary"
-                  href={`thoughts/edit/${thought._id}`}
-                >
-                  <EditIcon />
-                </IconButton>
-                <IconButton color="primary" onClick={delThought}>
-                  <DeleteForeverIcon />
-                </IconButton>
-              </CardActions>
-            )}
+
+            <CardActions className={classes.actionsContainer}>
+              <IconButton
+                color={likedByUser ? "primary" : "default"}
+                onClick={likeThisThought}
+              >
+                <ThumbUpAltIcon />
+              </IconButton>
+              {user?.profile._id === thought.author._id && (
+                <>
+                  <IconButton
+                    color="primary"
+                    href={`thoughts/edit/${thought._id}`}
+                  >
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton color="primary" onClick={delThought}>
+                    <DeleteForeverIcon />
+                  </IconButton>
+                </>
+              )}
+            </CardActions>
           </Card>
         </Grid>
       </Slide>
