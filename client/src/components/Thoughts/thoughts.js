@@ -19,14 +19,9 @@ const Thoughts = () => {
 
   return thoughts.length > 0 ? (
     <Grid className={classes.container} container spacing={2}>
-      {thoughts
-        .sort(
-          (a, b) =>
-            DateTime.fromISO(b.createdAt) - DateTime.fromISO(a.createdAt)
-        )
-        .map((thought) => (
-          <Thought key={thought._id} thought={thought} />
-        ))}
+      {thoughts.map((thought) => (
+        <Thought key={thought._id} thought={thought} />
+      ))}
     </Grid>
   ) : (
     <CircularProgress />

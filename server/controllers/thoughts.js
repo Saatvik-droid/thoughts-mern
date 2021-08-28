@@ -10,7 +10,7 @@ import ThoughtModel from "../models/thought.js";
 
 export const getThoughts = async (req, res) => {
   try {
-    var thoughts = await ThoughtModel.find();
+    var thoughts = await ThoughtModel.find().sort("-createdAt");
     let updatedThoughts = thoughts.map((thought) =>
       setLikedStatus(thought, req.userId)
     );
