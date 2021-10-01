@@ -90,14 +90,15 @@ const Thought = ({ thought }) => {
                 Made by {thought.author.name}
               </Typography>
             </CardContent>
-
             <CardActions className={classes.actionsContainer}>
-              <IconButton
-                color={likedByUser ? "primary" : "default"}
-                onClick={likeThisThought}
-              >
-                <ThumbUpAltIcon />
-              </IconButton>
+              {user && (
+                <IconButton
+                  color={likedByUser ? "primary" : "default"}
+                  onClick={likeThisThought}
+                >
+                  <ThumbUpAltIcon />
+                </IconButton>
+              )}
               {user?.profile._id === thought.author._id && (
                 <>
                   <IconButton
